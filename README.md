@@ -1,27 +1,91 @@
-# PdbeKbSummaryText
+PDBe-KB Summary Text Component
+=
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This is the repository of a lightweight Angular 7+ web component that displays textual summary information. 
 
-## Development server
+This component is used on the PDBe-KB Aggregated Views of Proteins to display summary information on a particular UniProt accession, including: 1.) protein name, 2.) gene name, 3.) species, 4.) biological function. It also supports flags (for example enzyme classification ids) and has an embedded "tutorial" web component.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Important:** This web component depends on the "tutorial" component which is available from [https://github.com/PDBe-KB/component-tutorial](https://github.com/PDBe-KB/component-tutorial)
 
-## Code scaffolding
+### Example:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://raw.githubusercontent.com/PDBe-KB/component-summary-text/main/pdbe-kb-summary-text.png">
 
-## Build
+## Quick Start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Get the code and install dependencies
+```
+git clone https://github.com/PDBe-KB/component-summary-text.git
+cd component-summary-text
+npm i
+```
 
-## Running unit tests
+Running the app
+```
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Running tests
+```
+ng test
+```
 
-## Running end-to-end tests
+## Dependencies
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+This web component embeds another PDBe-KB web component: [https://github.com/PDBe-KB/component-tutorial](https://github.com/PDBe-KB/component-tutorial)
 
-## Further help
+In order to use all the features of this web component, retrieve the tutorial component and replace the contents of the "src/app/tutorial" folder with those files.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Basic usage
+
+The pinging component can be added to any Angular7+ apps.
+
+Import the component (e.g. in app.module.ts):
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { SummaryTextComponent } from './summary-text/summary-text.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
+import {MatDialogModule} from '@angular/material';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    SummaryTextComponent,
+    TutorialComponent
+  ],
+  imports: [
+    BrowserModule,
+    MatDialogModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+Adding the pinging component to a template:
+```angular2html
+<app-summary-text [data]="data"></app-summary-text>
+```
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/PDBe-KB/component-summary-text/tags).
+
+## Authors
+
+* **Mihaly Varadi** - *Migrating to GitHub* - [mvaradi](https://github.com/mvaradi)
+
+See also the list of [contributors](https://github.com/PDBe-KB/component-summary-text/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the EMBL-EBI License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgements
+
+We would like to thank the [PDBe team](https://www.pdbe.org) and the [PDBe-KB partner resources](https://github.com/PDBe-KB/pdbe-kb-manual/wiki/PDBe-KB-Annotations) for their feedback and contributions.
