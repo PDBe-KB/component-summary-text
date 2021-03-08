@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {SummaryData} from './summary-text/summary-text.models';
+import {MOCK_DATA} from '../mockData';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pdbe-kb-summary-text';
+  data: SummaryData;
+
+  constructor() {
+    this.data = MOCK_DATA;
+  }
 }

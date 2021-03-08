@@ -1,0 +1,78 @@
+h2 {
+  color: black !important;
+  margin-bottom: 0px;
+}
+
+.help-icon {
+  float: right;
+}
+
+.whats-new {
+  color: rgb(116,179,96);
+  font-size: 0.8em;
+}
+
+.show-more {
+  font-size: 0.7em;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.text-section {
+  padding-right: 10px;
+  text-align: justify;
+}
+
+.italic_text {
+  font-style: italic;
+}
+
+.entry-flag {
+  font-size: small;
+  color: white;
+  font-weight: bold;
+  padding: 2px 5px 2px 5px;
+  border-radius: 25px;
+  margin-left: 5px;
+  border: solid 1px rgb(69, 110, 55);
+}
+
+.label-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.label-tooltip .label-tooltip-text {
+  visibility: hidden;
+  min-width: 400px;
+  max-width: 600px;
+  background-color: white;
+  color: #0a0a0a;
+  text-align: center;
+  border: solid 2px black;
+  border-radius: 6px;
+  padding: 5px 3px 5px 3px;
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+  left: 110%;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+.label-tooltip .label-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+.label-tooltip:hover .label-tooltip-text {
+  visibility: visible;
+}

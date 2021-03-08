@@ -1,3 +1,68 @@
-<p>
-  summary-text works!
-</p>
+<div class="small-10 columns">
+  <h2>
+    PDBe-KB
+    <i style="color: #0a0a0a; font-size: 0.5em" class="icon icon-functional" data-icon=">"></i>
+    {{data.title}}
+  </h2>
+</div>
+<div class="small-2 columns">
+  <span class="whats-new label-tooltip">
+    What's new?
+    <span class="label-tooltip-text" style="text-align: left">
+      <strong>Latest updates - 04/08/2020</strong>
+      <ul>
+        <li>View superposed structure clusters</li>
+        <li>View all ligands superposed</li>
+        <li>Added annotation for peptide and antibodies</li>
+        <li>Download data for entries, ligands, complexes</li>
+        <li>Added new "similar PDBs" section</li>
+        <li>Added new "processed proteins" section</li>
+      </ul>
+    </span>
+  </span>
+  <span class="help-icon">
+  <a (click)="openDialog()" style="border-bottom-style: none;"
+     onclick="gtag('event', 'click', {'event_category': 'tutorial', 'event_label': 'summary', 'value': 'clicked'})">
+    <i class="icon icon-generic" data-icon="?"></i>
+  </a>
+</span>
+</div>
+<div class="small-12 columns">
+  <p style="font-weight: bold">
+    {{data.subtitle}}
+    <span *ngFor="let flag of data.flags">
+    <span class="entry-flag" [ngStyle]="getStyle(flag)">
+      <a *ngIf="flag.url" href="{{flag.url}}" target="_blank" class="label-tooltip">
+        {{ flag.name }}&nbsp;<i class="icon icon-generic" data-icon="x"></i>
+        <span class="label-tooltip-text">{{flag.tooltip}}</span>
+      </a>
+      <span *ngIf="!flag.url" class="label-tooltip">
+        {{ flag.name }}
+        <span *ngIf="flag.tooltip" class="label-tooltip-text">{{flag.tooltip}}</span>
+      </span>
+    </span>
+  </span>
+  </p>
+
+  <div *ngFor="let text of data.texts">
+    <p *ngIf="text.text" class="text-section">
+      <strong>{{text.label}}: </strong>
+      <span [class.italic_text]="text.italic">
+      <span *ngIf="text.show_long">
+        <span [innerHTML]="text.text"></span>
+        <a *ngIf="get_shortened_text(text.text) != text.text" class="show-more" (click)="swich_text(text)"><i class="icon icon-functional" data-icon="-"></i> [show less]</a>
+      </span>
+      <span *ngIf="!text.show_long">
+        <span [innerHTML]="get_shortened_text(text.text)"></span>
+        <a class="show-more" *ngIf="check_if_has_to_show_more(text)" (click)="swich_text(text)"><i class="icon icon-functional" data-icon="+"></i> [show more]</a>
+      </span>
+    </span>
+      <span *ngIf="text.source">
+     <small style="font-size: smaller">
+       [go to <a href="{{text.source_url}}" target="_blank">{{text.source}} <i class="icon icon-generic" data-icon="x"></i></a> ]
+     </small>
+    </span>
+    </p>
+  </div>
+</div>
+
