@@ -1,5 +1,8 @@
 PDBe-KB Summary Text Component
 =
+[![Build Status](https://www.travis-ci.com/PDBe-KB/component-summary-text.svg?branch=main)](https://www.travis-ci.com/PDBe-KB/component-summary-text)
+[![codecov](https://codecov.io/gh/PDBe-KB/component-summary-text/branch/main/graph/badge.svg?token=XGRVGF9LDY)](https://codecov.io/gh/PDBe-KB/component-summary-text)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c757f22f7c1635df3ef8/maintainability)](https://codeclimate.com/github/PDBe-KB/component-summary-text/maintainability)
 
 This is the repository of a lightweight Angular 7+ web component that displays textual summary information. 
 
