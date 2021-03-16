@@ -39,6 +39,13 @@ This web component embeds another PDBe-KB web component: [https://github.com/PDB
 
 In order to use all the features of this web component, retrieve the tutorial component and replace the contents of the "src/app/tutorial" folder with those files.
 
+The main template should also have the following CSS import:
+```angular2html
+<link rel="stylesheet" href="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/ebi-global.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.3/fonts.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/css/theme-pdbe-green.css" type="text/css" media="all"/>
+```
+
 ## Basic usage
 
 The pinging component can be added to any Angular7+ apps.
